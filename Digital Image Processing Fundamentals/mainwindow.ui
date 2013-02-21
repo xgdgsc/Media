@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ImageDisplayer</class>
+ <widget class="QMainWindow" name="ImageDisplayer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1012</width>
+    <height>486</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1012</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_View">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="action_Actual_Size"/>
+    <addaction name="action_Fit_to_Window"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_In"/>
+    <addaction name="actionZoom_Out"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
+   <widget class="QMenu" name="menuPoint_Operation">
+    <property name="title">
+     <string>&amp;Point Operation</string>
+    </property>
+    <addaction name="actionHistogram"/>
+    <addaction name="action_Linear_Transformation"/>
+    <addaction name="action_Anti_color_Image"/>
+    <addaction name="action_Threshold"/>
+    <addaction name="actionHistogram_Normalization"/>
+   </widget>
+   <widget class="QMenu" name="menu_Algebraic_Operations">
+    <property name="title">
+     <string>&amp;Algebraic Operations</string>
+    </property>
+    <addaction name="action_Addition"/>
+    <addaction name="action_Subtraction"/>
+    <addaction name="action_Translation"/>
+   </widget>
+   <widget class="QMenu" name="menu_Geometrical_Transformations">
+    <property name="title">
+     <string>&amp;Geometrical Transformations</string>
+    </property>
+    <addaction name="action_Horizontal_Mirror"/>
+    <addaction name="action_Vertical_Mirror"/>
+    <addaction name="action_Affine_Transformation"/>
+   </widget>
+   <widget class="QMenu" name="menu_Morphological_Operations">
+    <property name="title">
+     <string>&amp;Morphological Operations</string>
+    </property>
+    <addaction name="action_Erosion"/>
+    <addaction name="action_Dilation"/>
+    <addaction name="action_Open_Operation"/>
+    <addaction name="action_Close_Operation"/>
+    <addaction name="action_Thinning"/>
+   </widget>
+   <widget class="QMenu" name="menu_Neighbor_Operations">
+    <property name="title">
+     <string>&amp;Neighbor Operations</string>
+    </property>
+    <widget class="QMenu" name="menu_Edge_Detection">
+     <property name="title">
+      <string>&amp;Edge Detection</string>
+     </property>
+     <addaction name="actionRobert"/>
+     <addaction name="action_Prewitt"/>
+     <addaction name="action_Sobel"/>
+     <addaction name="action_Canny"/>
+    </widget>
+    <widget class="QMenu" name="menu_Smoothing_Operation">
+     <property name="title">
+      <string>&amp;Smoothing Operation</string>
+     </property>
+     <addaction name="action_Neighborhood_averaging"/>
+     <addaction name="action_Gaussian_Filter"/>
+     <addaction name="action_Median_Filter"/>
+    </widget>
+    <addaction name="menu_Edge_Detection"/>
+    <addaction name="menu_Smoothing_Operation"/>
+   </widget>
+   <widget class="QMenu" name="menuDCT">
+    <property name="title">
+     <string>&amp;DCT</string>
+    </property>
+    <addaction name="action2DDCT_by_8_8_blocks_report"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menu_View"/>
+   <addaction name="menuPoint_Operation"/>
+   <addaction name="menu_Algebraic_Operations"/>
+   <addaction name="menu_Geometrical_Transformations"/>
+   <addaction name="menu_Morphological_Operations"/>
+   <addaction name="menu_Neighbor_Operations"/>
+   <addaction name="menuDCT"/>
+   <addaction name="menu_Help"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>E&amp;xit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="action_Actual_Size">
+   <property name="text">
+    <string>&amp;Actual Size</string>
+   </property>
+  </action>
+  <action name="action_Fit_to_Window">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Fit to Window</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="icon">
+    <iconset resource="icon.qrc">
+     <normaloff>:/icon/dip</normaloff>:/icon/dip</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionZoom_In">
+   <property name="text">
+    <string>Zoom &amp;In</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="actionZoom_Out">
+   <property name="text">
+    <string>Zoom &amp;Out</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="actionGenerate">
+   <property name="text">
+    <string>Generate</string>
+   </property>
+  </action>
+  <action name="actionHistogram">
+   <property name="text">
+    <string>&amp;Histogram</string>
+   </property>
+  </action>
+  <action name="action_Linear_Transformation">
+   <property name="text">
+    <string>&amp;Linear Transformation</string>
+   </property>
+  </action>
+  <action name="action_Anti_color_Image">
+   <property name="text">
+    <string>&amp;Anti-color Image</string>
+   </property>
+  </action>
+  <action name="action_Threshold">
+   <property name="text">
+    <string>&amp;Threshold</string>
+   </property>
+  </action>
+  <action name="actionHistogram_Normalization">
+   <property name="text">
+    <string>Histogram &amp;Normalization</string>
+   </property>
+  </action>
+  <action name="action_Addition">
+   <property name="text">
+    <string>&amp;Addition</string>
+   </property>
+  </action>
+  <action name="action_Subtraction">
+   <property name="text">
+    <string>&amp;Subtraction</string>
+   </property>
+  </action>
+  <action name="action_Translation">
+   <property name="text">
+    <string>&amp;Translation</string>
+   </property>
+  </action>
+  <action name="action_Horizontal_Mirror">
+   <property name="text">
+    <string>&amp;Horizontal Mirror</string>
+   </property>
+  </action>
+  <action name="action_Vertical_Mirror">
+   <property name="text">
+    <string>&amp;Vertical Mirror</string>
+   </property>
+  </action>
+  <action name="action_Erosion">
+   <property name="text">
+    <string>&amp;Erosion</string>
+   </property>
+  </action>
+  <action name="action_Dilation">
+   <property name="text">
+    <string>&amp;Dilation</string>
+   </property>
+  </action>
+  <action name="action_Open_Operation">
+   <property name="text">
+    <string>&amp;Open Operation</string>
+   </property>
+  </action>
+  <action name="action_Close_Operation">
+   <property name="text">
+    <string>&amp;Close Operation</string>
+   </property>
+  </action>
+  <action name="action_Thinning">
+   <property name="text">
+    <string>&amp;Thinning</string>
+   </property>
+  </action>
+  <action name="action_Affine_Transformation">
+   <property name="text">
+    <string>&amp;Affine Transformation</string>
+   </property>
+  </action>
+  <action name="actionRobert">
+   <property name="text">
+    <string>&amp;Robert</string>
+   </property>
+  </action>
+  <action name="action_Sobel">
+   <property name="text">
+    <string>&amp;Sobel</string>
+   </property>
+  </action>
+  <action name="action_Canny">
+   <property name="text">
+    <string>&amp;Canny</string>
+   </property>
+  </action>
+  <action name="action_Prewitt">
+   <property name="text">
+    <string>&amp;Prewitt</string>
+   </property>
+  </action>
+  <action name="action_Neighborhood_averaging">
+   <property name="text">
+    <string>&amp;Neighborhood averaging</string>
+   </property>
+  </action>
+  <action name="action_Gaussian_Filter">
+   <property name="text">
+    <string>&amp;Gaussian Filter</string>
+   </property>
+  </action>
+  <action name="action_Median_Filter">
+   <property name="text">
+    <string>&amp;Median Filter</string>
+   </property>
+  </action>
+  <action name="action2DDCT_by_8_8_blocks_report">
+   <property name="text">
+    <string>2DDCT by 8*8 blocks report</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
